@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Основы VUE</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container pt-5" id="app"> <!-- инициализация app по Vue -->
+        <div class="card center">
+        <h1>{{titleCounter}} {{counter}}</h1>
+            <div>
+                <button class="btn primary" v-on:click="counter++">+</button>
+                <button class="btn danger" v-on:click="counter-=1">-</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
