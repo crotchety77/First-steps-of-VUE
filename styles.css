@@ -67,6 +67,10 @@ h3 {
     color: #e53935;
 }
 
+.between {
+    align-items: normal;
+}
+
 .btn {
     color: #42b983;
     position: relative;
@@ -158,6 +162,7 @@ h3 {
     align-items: center;
 }
 
+
 .list {
     margin: 0;
     padding: 0;
@@ -169,4 +174,19 @@ h3 {
     align-items: center;
     justify-content: space-between;
     padding: 0.5rem 0;
+}
+
+.form-control {
+    width: 100%; /* Занять всю ширину родительского контейнера */
+    max-width: 500px; /* Максимальная ширина поля ввода */
+    margin: auto; /* Центрирование поля ввода */
+    padding: 1rem 0;
+}
+
+.form-control input {
+    width: 100%; /* Полное использование ширины родительского элемента */
+    padding: 10px; /* Отступы внутри поля ввода */
+    font-size: 16px; /* Размер шрифта */
+    border: 1px solid #ccc; /* Граница поля ввода */
+    border-radius: 5px; /* Закругленные углы */
 }

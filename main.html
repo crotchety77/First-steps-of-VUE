@@ -8,12 +8,36 @@
 <body>
     <div class="container pt-5" id="app"> <!-- инициализация app по Vue -->
         <div class="card center">
-        <h1>{{titleCounter}} {{counter}}</h1>
-            <div>
-                <button class="btn primary" v-on:click="counter++">+</button>
-                <button class="btn danger" v-on:click="counter-=1">-</button>
-            </div>
+            <h1 class="title">{{title}}</h1>
+                <div class="form-control">
+                    <input type="text"
+                           v-bind:placeholder="placeholderVue"
+                           v-bind:value="inputValue"
+                           v-on:input="inputChangeHandler"
+                           v-on:keypress.enter="addNewNote"
+                    /> <!-- не можем передавать значение напрямую. нужен v-bind -->
         </div>
+        <h2>{{inputValue}}</h2>
+        <button class="btn" v-on:click="addNewNote">Добавить</button>
+
+        <hr>
+            <div class="card" style="width: 70%;">
+            <ul class="list">
+            <li class = "list-item" v-for="(note, index) in notes">
+                [{{index}}] {{ note }}
+                <button class="btn danger" v-on:click="delNote(index)">Удалить</button>
+            </li>
+        </ul>
+            </div>
+    </div>
+
+
+<!--        <h1>{{titleCounter}} {{counter}}</h1>-->
+<!--            <div>-->
+<!--                <button class="btn primary" v-on:click="counter++">+</button>-->
+<!--                <button class="btn danger" v-on:click="counter-=1">-</button>-->
+<!--            </div>-->
+<!--        </div>-->
     </div>
 
 
