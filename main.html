@@ -11,9 +11,9 @@
             <h1 class="title">{{title}}</h1>
                 <div class="form-control">
                     <input type="text"
-                           v-bind:placeholder="placeholderVue"
+                           :placeholder="placeholderVue"
                            v-bind:value="inputValue"
-                           v-on:input="inputChangeHandler"
+                           @input="inputChangeHandler"
                            v-on:keypress.enter="addNewNote"
                     /> <!-- не можем передавать значение напрямую. нужен v-bind -->
         </div>
@@ -21,14 +21,23 @@
         <button class="btn" v-on:click="addNewNote">Добавить</button>
 
         <hr>
-            <div class="card" style="width: 70%;">
-            <ul class="list">
-            <li class = "list-item" v-for="(note, index) in notes">
-                [{{index}}] {{ note }}
-                <button class="btn danger" v-on:click="delNote(index)">Удалить</button>
-            </li>
-        </ul>
-            </div>
+        <div class="card" style="width: 70%;" v-if="notes.length !== 0">
+            <ul class="list" >
+                <li class = "list-item" v-for="(note, index) in notes">
+                    [{{index}}] {{ toUpperCase(note) }}
+                    <button class="btn danger" v-on:click="delNote(index)">Удалить</button>
+                </li>
+                <hr />
+                <li>
+                    Общее кол-во заметок {{notes.length}} | Удвоенное кол-во заметок {{doubleCountComputed}}
+                </li>
+            </ul>
+        </div>
+
+        <div v-else>
+            Заметок нет
+        </div>
+
     </div>
 
 
